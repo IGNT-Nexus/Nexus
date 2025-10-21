@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEXUS for Partners｜企業向け概要サイト</title>
+  <meta name="description" content="没入型観戦Esports Cafe『NEXUS』の企業向け概要。ビジョン、体験の核（五感同期/Betta/コミュニティ）、体験フロー、ビジネスモデル、法令配慮、FAQ、問い合わせ。" />
+  <meta name="theme-color" content="#0fe460" />
+  <style>
+    :root{--bg:#0a0a0f;--panel:#12121a;--muted:#c4b5c7;--text:#ffffff;--accent:#ff1f7d;--accent-light:#ff4d9a;--border:#2a1a2a;--radius:20px;--shadow:0 30px 60px rgba(0,0,0,.35),0 10px 20px rgba(0,0,0,.25)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:radial-gradient(1100px 520px at 90% -10%,rgba(255,31,125,.15),transparent 60%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans JP","Hiragino Kaku Gothic ProN","BIZ UDGothic","Yu Gothic",Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin-inline:auto}
+    
+    /* Header */
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.2) blur(8px);background:rgba(10,10,15,.65);border-bottom:1px solid rgba(255,255,255,.06);transition:background .3s ease,box-shadow .3s ease}
+    header.scrolled{background:rgba(10,10,15,.9);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px}
+    .dot{width:12px;height:12px;background:var(--accent);border-radius:50%;box-shadow:0 0 18px rgba(255,31,125,.8);animation:pulse 2s ease-in-out infinite;will-change:opacity}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+    .menu{display:flex;gap:22px;color:#e0d1e3;font-size:14px}
+    .menu a{transition:color .2s ease;position:relative}
+    .menu a:hover{color:var(--accent)}
+    .menu a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s ease}
+    .menu a:hover::after{width:100%}
+    .cta{display:flex;gap:10px}
+    
+    /* Mobile menu */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+    .hamburger span{width:24px;height:2px;background:var(--text);transition:all .3s ease;border-radius:2px}
+    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(7px,7px)}
+    .hamburger.active span:nth-child(2){opacity:0}
+    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px)}
+    
+    .mobile-menu{display:none;position:fixed;top:63px;left:0;right:0;background:rgba(10,10,15,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:20px;max-height:0;overflow:hidden;transition:max-height .4s ease}
+    .mobile-menu.active{max-height:500px}
+    .mobile-menu a{display:block;padding:12px 0;color:#e0d1e3;border-bottom:1px solid rgba(255,255,255,.05);transition:color .2s ease}
+    .mobile-menu a:hover{color:var(--accent)}
+    .mobile-menu .cta{flex-direction:column;margin-top:20px}
+    
+    /* Buttons */
+    .btn{display:inline-block;padding:12px 18px;border-radius:14px;border:1px solid transparent;font-weight:700;font-size:14px;transition:transform .3s ease,box-shadow .3s ease,background .3s ease,border-color .3s ease;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-light) 80%);color:#ffffff}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,31,125,.4)}
+    .btn-ghost{border:1px solid var(--border);background:rgba(255,255,255,.02);color:var(--text)}
+    .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:var(--accent)}
+    
+    /* Typography */
+    .section{padding:72px 0}
+    .eyebrow{letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:#d4b8d8;margin-bottom:8px;font-weight:600}
+    h1,h2,h3{line-height:1.2;margin:0 0 10px}
+    h1{font-size:44px;font-weight:800}
+    h2{font-size:32px;font-weight:700}
+    h3{font-size:22px;font-weight:600}
+    p{color:#e8dcea;line-height:1.8;margin:10px 0}
+    
+    /* Glass morphism */
+    .glass{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow);transition:border-color .3s ease,box-shadow .3s ease}
+    .glass:hover{border-color:rgba(255,31,125,.3);box-shadow:var(--shadow),0 0 30px rgba(255,31,125,.15)}
+    
+    /* Hero */
+    .hero{padding:96px 0 56px}
+    .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+    .lead{font-size:18px;color:#f0e5f2}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,31,125,.15);color:#ffb3da;border:1px solid rgba(255,31,125,.3);font-weight:700;font-size:13px;margin-bottom:16px}
+    
+    /* Hero visual */
+    .hero-visual{position:relative;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:linear-gradient(135deg,rgba(255,31,125,.12),rgba(255,77,154,.10))}
+    .hero-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(480px 200px at 25% 80%,rgba(255,31,125,.25),transparent 60%),radial-gradient(360px 160px at 75% 15%,rgba(255,77,154,.20),transparent 60%)}
+    .hero-grid{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 40px),repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 40px);animation:gridMove 20s linear infinite;will-change:transform}
+    @keyframes gridMove{0%{transform:translateY(0)}100%{transform:translateY(40px)}}
+    .visual-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;padding:30px}
+    .visual-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--accent),var(--accent-light));border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:40px;box-shadow:0 10px 30px rgba(255,31,125,.4);animation:float 3s ease-in-out infinite;will-change:transform}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .visual-text{color:var(--accent);font-weight:800;font-size:24px;text-align:center}
+    
+    /* Grids */
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    
+    /* Details/Accordion */
+    details{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:16px 18px;transition:background .3s ease,border-color .3s ease}
+    details:hover{background:rgba(255,255,255,.05);border-color:rgba(255,31,125,.3)}
+    details+details{margin-top:12px}
+    details summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;font-weight:600;user-select:none}
+    details summary::-webkit-details-marker{display:none}
+    details summary .icon{transition:transform .3s ease;color:var(--accent)}
+    details[open] summary .icon{transform:rotate(180deg)}
+    details p,details ul{margin-top:12px;padding-left:8px;border-left:2px solid var(--accent)}
+    details ul{padding-left:28px}
+    details li{margin:6px 0}
+    
+    /* Steps */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .step{padding:24px;position:relative;transition:transform .3s ease}
+    .step:hover{transform:translateY(-4px)}
+    .step .num{position:absolute;top:20px;right:20px;font-weight:800;font-size:36px;color:rgba(255,179,218,.25)}
+    .step h3{margin-top:8px}
+    
+    /* List styles */
+    ul{padding-left:20px}
+    li{margin:8px 0;color:#e8dcea}
+    
+    /* Footer */
+    .footer{border-top:1px solid rgba(255,255,255,.06);color:#d4b8d8;padding:40px 0}
+    .footer-content{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .footer-links a{transition:color .2s ease}
+    .footer-links a:hover{color:var(--accent)}
+    
+    /* Scroll reveal */
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.active{opacity:1;transform:translateY(0)}
+    
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero-wrap{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr 1fr}
+    }
+    
+    @media (max-width:768px){
+      .menu,.cta{display:none}
+      .hamburger{display:flex}
+      .mobile-menu{display:block}
+      h1{font-size:34px}
+      h2{font-size:26px}
+      .grid3,.grid2{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .hero{padding:60px 0 40px}
+      .section{padding:50px 0}
+    }
+    
+    @media (max-width:640px){
+      .visual-icon{width:60px;height:60px;font-size:30px}
+      .visual-text{font-size:18px}
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container nav">
+      <a href="#" class="brand"><span class="dot"></span><span>NEXUS for Partners</span></a>
+      <nav class="menu" aria-label="Primary">
+        <a href="#vision">ビジョン</a>
+        <a href="#product">プロダクト</a>
+        <a href="#flow">体験のしかた</a>
+        <a href="#biz">ビジネス</a>
+        <a href="#safety">法対応</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">問い合わせ</a>
+      </nav>
+      <div class="cta">
+        <a class="btn btn-ghost" href="#contact">資料請求</a>
+        <a class="btn btn-primary" href="#contact">コラボ相談</a>
+      </div>
+      <div class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="#vision">ビジョン</a>
+      <a href="#product">プロダクト</a>
+      <a href="#flow">体験のしかた</a>
+      <a href="#biz">ビジネス</a>
+      <a href="#safety">法対応</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">問い合わせ</a>
+      <div class="cta">
+        <a class="btn btn-ghost" href="#contact">資料請求</a>
+        <a class="btn btn-primary" href="#contact">コラボ相談</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div>
+        <span class="badge">企業向け概要｜スポンサー・IP・会場連携</span>
+        <h1>観るだけじゃない。<span style="color:var(--accent)">五感＋参加</span>で"感戦"をつくる。</h1>
+        <p class="lead">没入型観戦Esports Cafe「NEXUS」は、試合に同期する光・音・振動・香りと、ポイント制予想ゲーム"Betta"で、観戦の価値を拡張します。パートナー企業と共に、前見のないeスポーツの未来をつくります。</p>
+        <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#contact">パートナー相談</a>
+          <a class="btn btn-ghost" href="#product">体験の核を見る</a>
+        </div>
+      </div>
+      <div class="hero-visual glass" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="visual-content">
+          <div class="visual-icon">⚡</div>
+          <div class="visual-text">五感で感じる<br>新しい観戦体験</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision" class="section reveal">
+    <div class="container grid2">
+      <div>
+        <div class="eyebrow">Vision / Purpose</div>
+        <h2>ビジョン／目的</h2>
+        <p><strong>目的：</strong>受動的な"視聴"を、五感＋能動的参加で"感戦"に変える常設観戦カフェをつくる。</p>
+        <p><strong>ビジョン：</strong>観戦価値を底上げし、日本をeスポーツ観戦文化の最先端に。前見のないeスポーツの未来へ。</p>
+        <p><strong>タグライン：</strong>「感戦。観るだけじゃない。感じろ。」</p>
+      </div>
+      <div class="glass" style="padding:24px">
+        <h3>企業様の関与メリット</h3>
+        <ul>
+          <li>試合日を中心とした<strong>来店導線</strong>の創出（新規層含む）</li>
+          <li>場内演出・Betta UI・記念チケット等での<strong>IP体験拡張</strong></li>
+          <li>来店／参加データに基づく<strong>ブランド施策の最適化</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="product" class="section reveal">
+    <div class="container">
+      <div class="eyebrow">Product</div>
+      <h2>プロダクト（体験の核）</h2>
+
+      <details>
+        <summary><strong>五感同期</strong><span class="icon">⌄</span></summary>
+        <p>試合に合わせて<strong>光・音・振動・香り</strong>が連動（無香モード／強度調整あり）。</p>
+        <ul>
+          <li><strong>ULT連動：</strong>座席ハプティクスと照明がピーク演出</li>
+          <li><strong>ACE/Map取得：</strong>フロア全体の高揚エフェクト</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary><strong>参加型"Betta"（ポイント制予想ゲーム）</strong><span class="icon">⌄</span></summary>
+        <p>来店時に配布される<strong>無料ポイント</strong>を使って、勝敗・K/D・ACE発生などを予想するゲームです。</p>
+        <ul>
+          <li>的中ポイントは<strong>ドリンク・フード・特典</strong>に交換可能</li>
+          <li>ポイント使用で<strong>会員ランクアップ</strong></li>
+          <li>※金銭の授受は一切なく、換金もできません</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary><strong>コミュニティ（ランク＆シーズン／Discord）</strong><span class="icon">⌄</span></summary>
+        <p>会員ランク＆<strong>4か月シーズン</strong>：Bronze→Silver→Gold→Platinum→Diamond→<strong>Jinx</strong></p>
+        <ul>
+          <li>シーズンごとにランク別プレゼント</li>
+          <li>ポイント使用でランクアップ・限定<strong>Discord</strong>で交流・情報共有</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary><strong>独自要素（プロ体感／限定チケット／月一ミッション）</strong><span class="icon">⌄</span></summary>
+        <ul>
+          <li><strong>プロ選手体感ブース：</strong>当日の選手が使ったデバイス・感度を再現。同環境での体験</li>
+          <li><strong>限定記念チケット：</strong>ウォッチパーティ日付・チーム・選手をデザイン</li>
+          <li><strong>月一ミッション：</strong>達成で特典や抽選権（例：ドリンク購入／予想的中）</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary><strong>公式アプリ</strong><span class="icon">⌄</span></summary>
+        <p>モバイルオーダー、オンライン公式グッズ、店舗情報、Betta、ポイント管理、チケット販売、月一ミッションを統合。</p>
+      </details>
+
+    </div>
+  </section>
+
+  <section id="flow" class="section reveal">
+    <div class="container">
+      <div class="eyebrow">Flow</div>
+      <h2>体験のしかた（来店→退店）</h2>
+      <div class="steps">
+        <div class="step glass">
+          <div class="num">01</div>
+          <h3>チェックイン</h3>
+          <p>会員QR・推し設定。席のライト／演出が同期。</p>
+        </div>
+        <div class="step glass">
+          <div class="num">02</div>
+          <h3>没入セット</h3>
+          <p>3D音響／ハプティクス／香りを1分で適用。</p>
+        </div>
+        <div class="step glass">
+          <div class="num">03</div>
+          <h3>観戦／"感戦"</h3>
+          <p>ハイライト連動＋アプリからBetta参加。</p>
+        </div>
+        <div class="step glass">
+          <div class="num">04</div>
+          <h3>リワード</h3>
+          <p>特典交換・ランクアップ・記念チケット取得。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="biz" class="section reveal">
+    <div class="container">
+      <div class="eyebrow">Business</div>
+      <h2>ビジネスモデル（初期案）</h2>
+      <div class="grid2">
+        <div>
+          <h3>主要収益</h3>
+          <ul>
+            <li>席チャージ／飲食</li>
+            <li>座席アップグレード（ハプティクス席等）</li>
+            <li>観戦チケット</li>
+            <li>公式グッズ販売</li>
+            <li>個人グッズ販売（週単位の棚貸し）</li>
+            <li>スポンサー／イベント貸出</li>
+            <li>定期ファンミーティング＆店舗大会</li>
+          </ul>
+        </div>
+        <div class="glass" style="padding:24px">
+          <h3 style="margin:0 0 12px">拡張施策</h3>
+          <ul style="margin:0">
+            <li>スポンサー協賛</li>
+            <li>公式ウォッチパーティ提携</li>
+            <li>貸切イベント</li>
+            <li>物販強化</li>
+            <li>コミュニティ収益化</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="safety" class="section reveal">
+    <div class="container grid2">
+      <div>
+        <div class="eyebrow">Compliance</div>
+        <h2>セーフティ／法対応</h2>
+        <ul>
+          <li>予想ゲーム"Betta"は無料ポイント制で金銭授受なし。年齢配慮・表示・同意フローを実装。</li>
+          <li>騒音/低域伝播対策（構造・機材）／香りの選択制／演出強度スライダー／休憩リマインダー。</li>
+        </ul>
+      </div>
+      <div class="glass" style="padding:24px">
+        <h3 style="margin:0 0 12px">企業向け留意点</h3>
+        <p style="margin:0">企画/広告表現は青少年配慮/プライバシー保護を遵守。個別の監修・リーガルレビューを推奨します。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section reveal">
+    <div class="container">
+      <div class="eyebrow">FAQ</div>
+      <h2>よくある質問</h2>
+      
+      <details>
+        <summary><span>Bettaは賭博ですか？</span><span class="icon">⌄</span></summary>
+        <p>いいえ、違います。来店時にもらえる<strong>無料ポイント</strong>で参加する予想ゲームです。金銭の授受は一切なく、換金もできません。的中したポイントは店内の飲食や特典と交換できます。</p>
+      </details>
+
+      <details>
+        <summary><span>香りが苦手です。</span><span class="icon">⌄</span></summary>
+        <p>無香モードを選択できます。また演出強度も席ごとに調整可能ですので、ご自身のお好みに合わせてカスタマイズできます。</p>
+      </details>
+
+      <details>
+        <summary><span>初心者でも楽しめますか？</span><span class="icon">⌄</span></summary>
+        <p>もちろんです。初心者ガイドと解説カードを常設しています。盛り上がりどころを一緒に体験できるので、ルールを知らなくても十分楽しめます。</p>
+      </details>
+
+      <details>
+        <summary><span>スポンサー/コラボは可能ですか？</span><span class="icon">⌄</span></summary>
+        <p>はい、可能です。場内演出・Betta UI・記念チケット・公式グッズ・出張NEXUS等、目的に合わせて柔軟に設計いたします。お気軽にご相談ください。</p>
+      </details>
+
+      <details>
+        <summary><span>視察や体験会は可能ですか？</span><span class="icon">⌄</span></summary>
+        <p>ポップアップ開催時や店舗オープン後に、企業様向けの視察・体験会を実施予定です。詳細はお問い合わせください。</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="contact" class="section reveal">
+    <div class="container glass" style="padding:32px">
+      <div class="eyebrow">Contact</div>
+      <h2>お問い合わせ / 資料請求</h2>
+      <p>コラボ、スポンサー、視察のご相談はこちらから。</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
+        <a class="btn btn-primary" href="mailto:info.25on4@ignite-your-ambition.com?subject=NEXUS%20%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">メールで問い合わせ</a>
+        <a class="btn btn-ghost" href="https://x.com/IGNT_NEXUS" target="_blank" rel="noopener">X（Twitter）@IGNT_NEXUS</a>
+        <a class="btn btn-ghost" href="#product">プロダクト詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="dot" style="width:10px;height:10px"></span>
+        <strong>NEXUS</strong>
+        <span style="color:#d4b8d8">© <span id="year"></span></span>
+      </div>
+      <div class="footer-links">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">利用規約</a>
+        <a href="#">特定商取引法に基づく表記</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 年表示
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // ハンバーガーメニュー
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+    
+    // モバイルメニューのリンクをクリックしたら閉じる
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+    
+    // スクロール時のヘッダー
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      lastScroll = currentScroll;
+    });
+    
+    // スクロールアニメーション
+    const reveals = document.querySelectorAll('.reveal');
+    
+    const revealOnScroll = () => {
+      reveals.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('active');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // 初期表示
+    
+    // スムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        
+        if (target) {
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
